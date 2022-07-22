@@ -18,10 +18,12 @@ class MainActivity : AppCompatActivity() {
         mainVm.requestData()//网络请求
 
 
-        test1()
-        test3()
+//        test1()
+//        test3()
 
+        test6()
     }
+
 
 
     fun test0() {
@@ -120,6 +122,19 @@ class MainActivity : AppCompatActivity() {
 //        val merged = suspendingMerge(avatar, logo)    // 合并结果
 //        //                  👆
 //        show(merged) // 更新 UI
+    }
+
+    fun test6() {
+        Thread{
+            Log.e("wpf123wpf", "delay0 ")
+            GlobalScope.launch {
+                Log.e("wpf123wpf", "delay1 ")
+                delay(6000)
+                Log.e("wpf123wpf", "delay2 ")
+            }
+            Log.e("wpf123wpf", "delay4 ")
+        }.start()
+
     }
 
 }
