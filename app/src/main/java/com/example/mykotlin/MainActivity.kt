@@ -18,18 +18,12 @@ class MainActivity : AppCompatActivity() {
         mainVm.requestData()//网络请求
 
 
-
         test1()
         test3()
 
     }
 
 
-    /**
-     * 可以用于切换线程
-     * withConext是个 suspend 函数
-     * 多个withContext()执行，为串行，运行在同一个线程
-     */
     fun test0() {
         var tv_name = this.findViewById<TextView>(R.id.tv_name)
         CoroutineScope(Dispatchers.Main).launch {
@@ -52,12 +46,12 @@ class MainActivity : AppCompatActivity() {
      */
     fun test1() {
         GlobalScope.launch {//但在 Android 开发中同样不推荐这种用法，因为它的生命周期会和 app 一致，且不能取消
-
+            Log.e("wpf123wpf", "withContext0 ")
             withContext(Dispatchers.IO) {
                 delay(2000)
                 Log.e("wpf123wpf", "withContext1 " + Thread.currentThread().name)
             }
-
+            Log.e("wpf123wpf", "withContext3 ")
             withContext(Dispatchers.IO) {
                 delay(2000)
                 Log.e("wpf123wpf", "withContext2 " + Thread.currentThread().name)
