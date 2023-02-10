@@ -3,8 +3,9 @@ plugins {
     id 'kotlin-android'
 }
 //编译模式
+def HOST_JENKINS = System.getenv("BUILD_MODE")
 def buildModel = project.hasProperty('BUILD_MODE') ? project.BUILD_MODE : "in"
-println("------------------------------编译模式=$buildModel,-------------------------------------- ----------- ")
+println("------------------------------编译模式=$buildModel, --------$HOST_JENKINS-------------------------------------- ----------- ")
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
