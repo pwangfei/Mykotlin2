@@ -2,7 +2,9 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
-
+//编译模式
+def buildModel = project.hasProperty('BUILD_MODE') ? project.BUILD_MODE : "in"
+println("------------------------------编译模式=$buildModel,-------------------------------------- ----------- ")
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
